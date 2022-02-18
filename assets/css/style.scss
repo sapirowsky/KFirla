@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:ital,wght@0,400;1,300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+*{
+    box-sizing: border-box;
+}
 body{
     margin: 0;
     padding: 0;
@@ -16,14 +19,22 @@ body{
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 2;
         .container{
+            
             display: flex;
             justify-content: space-between;
-            padding: 1rem 6rem;
+            padding: 1.5rem 4rem 0 6rem;
+            .logo{
+                img{
+                    height: 2rem;
+                }
+            }
             nav{
                 width: 48%;
                 display: flex;
-                justify-content: space-between;
+                gap: 1.5rem;
+                justify-content: end;
             }
         }
     }
@@ -35,45 +46,62 @@ body{
 .main-container{
     display: flex;
     
-.left{
-    background-image: url("../img/screenshot.png");
-    background-repeat: no-repeat;
-    background-size: 200%;
-    background-position: 50%;
-    width: 50%;
-    height: 100vh;
-    .h1-container{
-        font-family: 'Roboto Mono', monospace;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+    .left{
+        width: 50%;
         height: 100vh;
-        h1{
-            color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 23rem;
-            height: 4rem;
+        ul{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li{
+                height: 100vh;
+            }
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                z-index: 1;
+            }
+        
+            h1{
+                position: absolute;
+                top: 50%;
+                left: 15%;
+                // color: black;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                // width: 23rem;
+                // height: 4rem;
+            }
+        }
+        
+    }
+    .right{
+        display: block;
+        width: 50%;
+        height: 100vh;
+        padding: 6rem 2rem 0 3.2rem;
+        .content{
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+        #ourwork{
+            display: none;
+        }
+        #offer{
+            display: none;
+        }
+        #contact{
+            display: none;
         }
     }
 }
-.right{
-    // font-family: 'Roboto', sans-serif;
-    font-family: 'Roboto Mono', monospace;
-    display: block;
-    width: calc(50% - 4rem);
-    height: calc(100vh - 8rem);
-    padding: 8rem 2rem 0 2rem;
-    #ourwork{
-        display: none;
-    }
-    #offer{
-        display: none;
-    }
-    #contact{
-        display: none;
-    }
-}
+footer{
+    font: 1.5rem bold;
+    display: flex;
+    justify-content: end;
+    
 }
