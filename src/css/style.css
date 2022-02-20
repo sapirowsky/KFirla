@@ -167,7 +167,7 @@ body {
 .right > .container .rotated {
   position: absolute;
   bottom: 12rem;
-  right: -8.5rem;
+  right: -11.3rem;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
 }
