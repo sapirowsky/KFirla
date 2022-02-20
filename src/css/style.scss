@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+*, *::before, *::after{
+    box-sizing: border-box;
+}
+:root{
+    --background-color: #F2F2F2;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.5;
+    background-color: var(--background-color);
+    font-size: 1.5rem;
+}
+.navbar{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 4rem;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+.toggle-nav{
+    position: absolute;
+    display: none;
+    top: 1.25rem;
+    right: 4rem;
+}
+.navbar-links ul{
+    width: calc(50vw - 4rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-left: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+.navbar-links ul li a{
+    text-decoration: none;
+    display: block;
+    color: black;
+    font-weight: bold;
+}
+.navbar-links li:hover{
+    a{
+        color: rgba(91, 255, 0, 1);
+    }
+}
+.logo{
+    width: 35px;
+    height: 35px;
+}
+.toggle-nav{
+    max-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
+}
+@media (max-width: 1150px){
+    .navbar{
+        padding: 1.5rem 3rem;
+    }
+    .toggle-nav{
+        right: 3rem;
+        display: block;
+    }
+    .navbar-links{
+        opacity: 0;
+        pointer-events: none;
+        position: absolute;
+        top: calc(3rem + 40px);
+        right: 3rem;
+        transform: translateY(-10px);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        ul{
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+            li a{
+                float: right;
+            }
+        }
+    }
+    .navbar-links.active{
+        display: block;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        background-color: var(--background-color);
+    } 
+}
+@media (max-width: 600px){
+    body{
+        font-size: 1rem;
+    }
+    .navbar{
+        padding: 1rem 2rem;
+    }
+    .toggle-nav{
+        top: .75rem;
+        right: 2rem;
+    }
+    .navbar-links{
+        top: calc(2rem + 30px);
+        right: 2rem;
+    }
+    .logo{
+        width: 25px;
+        height: 25px;
+    }
+    .toggle-nav{
+        max-width: 30px;
+        max-height: 30px;
+    }
+}
