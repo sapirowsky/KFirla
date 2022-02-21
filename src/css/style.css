@@ -88,11 +88,14 @@ body {
 }
 
 .left > ul > li > a > img {
-  position: absolute;
+  position: block;
   width: 100%;
   height: 100vh;
-  left: -25%;
   z-index: 1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
 .left > ul > li > a > h1 {
