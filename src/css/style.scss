@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
 *, *::before, *::after{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+h1, a{
+    margin: 0;
+    padding: 0;
 }
 :root{
     --background-color: #F2F2F2;
-    --green-from-logo: rgba(91, 255, 0, 1);
+    --hover-color: rgb(134, 134, 134);
 }
 html{
     scroll-behavior: smooth;
 }
 body{
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Mono', monospace;
     line-height: 1.5;
     background-color: var(--background-color);
     font-size: 1.5rem;
@@ -31,37 +35,62 @@ body{
     display: none;
     top: 1.25rem;
     right: 4rem;
+    max-width: 40px;
+    max-height: 40px;
+    cursor: pointer;
 }
 .navbar-links ul{
+    position: relative;
     width: calc(50vw - 4rem);
-    list-style: none;
     margin: 0;
     padding: 0;
     padding-left: 2rem;
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
+}
+.navbar-links ul li{
+    position: relative;
+    list-style: none;
 }
 .navbar-links ul li a{
+    position: relative;
     text-decoration: none;
     display: block;
-    color: black;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-weight: bold;
+    color: black;
 }
-.navbar-links li:hover{
-    a{
-        color: var(--green-from-logo);
-    }
+.navbar-links ul li a::before{
+    content: attr(data-text); 
+    position: absolute;
+    color: var(--clr);
+    width: 0;
+    overflow: hidden;
+    transition: 1s;
+    border-right: 8px solid var(--clr);
+}
+.navbar-links ul li a:hover::before{
+   width: 100%;
+   filter: drop-shadow(0 0 25px var(--clr));
 }
 .logo{
     width: 35px;
     height: 35px;
+    
 }
-.toggle-nav{
-    max-width: 40px;
-    max-height: 40px;
-    cursor: pointer;
+.logo-container{
+    position: absolute;
+    top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: violet;
+    border-radius: 1.5rem;
 }
+
 .left > ul{
     width: 50vw;
     list-style: none;
@@ -78,7 +107,7 @@ body{
 }
 .left > ul > li > a > h1{
     position: absolute;
-    color: red;
+    color: black;
     top: 50%;
     left: 50%;
     z-index: 3;
@@ -121,7 +150,7 @@ body{
                 text-decoration: none;
                 color: black;
                 &:hover{
-                    color: var(--green-from-logo);
+                    color: var(--hover-color);
                 }
             }
         }
@@ -142,7 +171,9 @@ body{
     top: 100vh;
     left: 0;
     padding: 2rem 4rem;
-
+    p{
+        margin-left: 1rem;
+    }
     
     // height: 100vh;
 }
@@ -155,9 +186,22 @@ body{
         ul{
             display: none;
         }
+        .contact-list{
+         display: flex;
+         flex-direction: column;
+        }
     }
 }
-
+@media (max-width: 1360px) and (min-width: 1260px){
+    .navbar-links ul{
+        width: calc(50vw - 1rem);
+    }
+}
+@media (max-width: 1259px){
+    .navbar-links{
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+}
 @media (max-width: 1260px){
     .navbar{
         padding: 1.5rem 3rem;
@@ -173,7 +217,7 @@ body{
         top: calc(3rem + 40px);
         right: 3rem;
         transform: translateY(-10px);
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        
         ul{
             flex-direction: column;
             width: 100%;
@@ -194,27 +238,35 @@ body{
         background-color: var(--background-color);
     } 
 }
-// @media (max-width: 600px){
-//     body{
-//         font-size: 1rem;
-//     }
-//     .navbar{
-//         padding: 1rem 2rem;
-//     }
-//     .toggle-nav{
-//         top: .75rem;
-//         right: 2rem;
-//     }
-//     .navbar-links{
-//         top: calc(2rem + 30px);
-//         right: 2rem;
-//     }
-//     .logo{
-//         width: 25px;
-//         height: 25px;
-//     }
-//     .toggle-nav{
-//         max-width: 30px;
-//         max-height: 30px;
-//     }
-// }
+@media (max-width: 800px){
+    .left > ul{
+        display: none;
+    }
+    .right{
+        width: 100%;
+        left: 0%;
+    }
+    .right > .container{
+        ul{
+            display: block;
+            position: absolute;
+            top: 70%;
+            transform: translateY(-30%);
+            li{
+                display: flex;
+                justify-content: start;
+            }
+            .mail{
+                margin-left: 3rem
+            }
+        }
+        .contact-list{
+            top: 82.5%;
+        }
+    }
+    .right > .container{
+        .rotated{
+            right: -10.5rem;
+        }
+    }
+}

@@ -1,12 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap");
 *, *::before, *::after {
+  margin: 0;
+  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+h1, a {
+  margin: 0;
+  padding: 0;
 }
 
 :root {
   --background-color: #F2F2F2;
-  --green-from-logo: rgba(91, 255, 0, 1);
+  --hover-color: rgb(134, 134, 134);
 }
 
 html {
@@ -14,9 +22,6 @@ html {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto Mono', monospace;
   line-height: 1.5;
   background-color: var(--background-color);
   font-size: 1.5rem;
@@ -41,11 +46,14 @@ body {
   display: none;
   top: 1.25rem;
   right: 4rem;
+  max-width: 40px;
+  max-height: 40px;
+  cursor: pointer;
 }
 
 .navbar-links ul {
+  position: relative;
   width: calc(50vw - 4rem);
-  list-style: none;
   margin: 0;
   padding: 0;
   padding-left: 2rem;
@@ -55,18 +63,38 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  gap: 1rem;
+}
+
+.navbar-links ul li {
+  position: relative;
+  list-style: none;
 }
 
 .navbar-links ul li a {
+  position: relative;
   text-decoration: none;
   display: block;
-  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   font-weight: bold;
+  color: black;
 }
 
-.navbar-links li:hover a {
-  color: var(--green-from-logo);
+.navbar-links ul li a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: var(--clr);
+  width: 0;
+  overflow: hidden;
+  -webkit-transition: 1s;
+  transition: 1s;
+  border-right: 8px solid var(--clr);
+}
+
+.navbar-links ul li a:hover::before {
+  width: 100%;
+  -webkit-filter: drop-shadow(0 0 25px var(--clr));
+          filter: drop-shadow(0 0 25px var(--clr));
 }
 
 .logo {
@@ -74,10 +102,22 @@ body {
   height: 35px;
 }
 
-.toggle-nav {
-  max-width: 40px;
-  max-height: 40px;
-  cursor: pointer;
+.logo-container {
+  position: absolute;
+  top: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: violet;
+  border-radius: 1.5rem;
 }
 
 .left > ul {
@@ -100,7 +140,7 @@ body {
 
 .left > ul > li > a > h1 {
   position: absolute;
-  color: red;
+  color: black;
   top: 50%;
   left: 50%;
   z-index: 3;
@@ -160,7 +200,7 @@ body {
 }
 
 .right > .container ul li a:hover {
-  color: var(--green-from-logo);
+  color: var(--hover-color);
 }
 
 .right > .container p {
@@ -182,6 +222,10 @@ body {
   padding: 2rem 4rem;
 }
 
+.main-content p {
+  margin-left: 1rem;
+}
+
 .contact {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -195,6 +239,30 @@ body {
 @media (max-width: 1550px) {
   .right > .container ul {
     display: none;
+  }
+  .right > .container .contact-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media (max-width: 1360px) and (min-width: 1260px) {
+  .navbar-links ul {
+    width: calc(50vw - 1rem);
+  }
+}
+
+@media (max-width: 1259px) {
+  .navbar-links {
+    -webkit-transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   }
 }
 
@@ -214,10 +282,6 @@ body {
     right: 3rem;
     -webkit-transform: translateY(-10px);
             transform: translateY(-10px);
-    -webkit-transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-    transition: opacity 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out, -webkit-transform 150ms ease-in-out;
   }
   .navbar-links ul {
     -webkit-box-orient: vertical;
@@ -244,6 +308,40 @@ body {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     background-color: var(--background-color);
+  }
+}
+
+@media (max-width: 800px) {
+  .left > ul {
+    display: none;
+  }
+  .right {
+    width: 100%;
+    left: 0%;
+  }
+  .right > .container ul {
+    display: block;
+    position: absolute;
+    top: 70%;
+    -webkit-transform: translateY(-30%);
+            transform: translateY(-30%);
+  }
+  .right > .container ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+  .right > .container ul .mail {
+    margin-left: 3rem;
+  }
+  .right > .container .contact-list {
+    top: 82.5%;
+  }
+  .right > .container .rotated {
+    right: -10.5rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
