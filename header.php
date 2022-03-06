@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,35 +9,28 @@
     <link rel="stylesheet" href="src/css/style.css">
     <script src="src/js/script.js" defer></script>
 </head>
-
 <body>
     <header class="navbar">
-        <div class="logo-container">
+        <a href="index.php" class="logo-container">
             <img src="src/img/logo.png" alt="Logo KF" class="logo">
-        </div>
+        </a>
         <div class="hamburger-container">
             <img src="src/img/menu.svg" alt="Otwórz menu" class="toggle-nav">
         </div>
         <nav class="navbar-links">
             <ul>
                 <li style="--clr: #00ade1">
-                    <a href="index.html" data-text="&nbsp;Technologia">&nbsp;Technologia&nbsp;</a>
+                    <a href="index.php" data-text="&nbsp;Technologia">&nbsp;Technologia&nbsp;</a>
                 </li>
                 <li style="--clr: #ff6493">
-                    <a href="realization.html" data-text="&nbsp;Realizacje">&nbsp;Realizacje&nbsp;</a>
+                    <a href="realization.php" data-text="&nbsp;Realizacje">&nbsp;Realizacje&nbsp;</a>
                 </li>
                 <li style="--clr: #ff551c">
-                    <a href="offer.html" data-text="&nbsp;Oferta">&nbsp;Oferta&nbsp;</a>
+                    <a href="offer.php" data-text="&nbsp;Oferta">&nbsp;Oferta&nbsp;</a>
                 </li>
                 <li style="--clr: #dc00d4">
-                    <a href="contact.html" data-text="&nbsp;Kontakt">&nbsp;Kontakt&nbsp;</a>
+                    <a href="contact.php" data-text="&nbsp;Kontakt">&nbsp;Kontakt&nbsp;</a>
                 </li>
             </ul>
         </nav>
     </header>
-    nie wiem
-
-
-</body>
-
-</html>

@@ -29,6 +29,7 @@ body{
     position: absolute;
     width: 100%;
     z-index: 3;
+    background-color: var(--background-color);
 }
 .toggle-nav{
     position: absolute;
@@ -87,9 +88,21 @@ body{
     align-items: center;
     width: 50px;
     height: 50px;
-    background-color: white;
+    background-color: var(--background-color);
     border-radius: 1.5rem;
 }
+.slide{
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    transition-delay: 250ms;
+}
+.slide[data-active] {
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0ms;
+  }
 
 .left > ul{
     width: 50vw;
@@ -98,79 +111,34 @@ body{
     padding: 0;
 }
 .left > ul > li > a > img{
-    position: block;
-    width: 100%;
+    width: 50%;
     height: 100vh;
-    z-index: 1;
     object-fit: cover;
     object-position: center;
+    position: fixed;
 }
 .left > ul > li > a > h1{
     position: absolute;
     color: black;
-    top: 50%;
+    top: 30%;
     left: 50%;
-    z-index: 3;
-    transform: translate(-50%, -50%);
+    z-index: 2;
+    transform: translate(-50%, -70%);
 }
 .right{
     width: calc(50vw - 1rem);
-    z-index: 2;
-    height: 100vh;
+    height: auto;
     position: absolute;
     left: 50%;
     top: 0;
-    background-color: var(--background-color);
 }
-.right > .container{
-    padding: 1rem;
-    h3,
-    p{
-        margin: 0;
-        display: flex;
-        justify-content: center;
-    }
-    height: 100%;
-    display: flex;
-    gap: 15%;
-    align-items: end;
-    .arrow{
-        .arrow-down{
-            width: 40px;
-            cursor: pointer;
-            transition: all 0.5s ease-in-out;
-        }
-    }
-    ul{
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        li{
-            a{
-                text-decoration: none;
-                color: black;
-                &:hover{
-                    color: var(--hover-color);
-                }
-            }
-        }
-    }
-    p{
-        font-weight: bold;
-    }
-    .rotated{
-        position: absolute;
-        bottom: 12rem;
-        right: -11.3rem;
-        transform: rotate(-90deg);
-    }
-}
+
 .main-content{
     
     position: absolute;
-    top: 100vh;
+    top: 32.5vh;
     left: 0;
-    padding: 2rem 4rem;
+    padding: 2rem 2rem;
     p{
         margin-left: 1rem;
     }
@@ -181,25 +149,10 @@ body{
     display: flex;
     flex-direction: column;
 }
-@media (max-width: 1550px){
-    .right > .container{
-        ul{
-            display: none;
-        }
-        .contact-list{
-         display: flex;
-         flex-direction: column;
-        }
-    }
-}
+
 @media (max-width: 1360px) and (min-width: 1260px){
     .navbar-links ul{
         width: calc(50vw - 1rem);
-    }
-}
-@media (max-width: 1259px){
-    .navbar-links{
-        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
     }
 }
 @media (max-width: 1260px){
@@ -214,17 +167,21 @@ body{
         opacity: 0;
         pointer-events: none;
         position: absolute;
-        top: calc(3rem + 40px);
+        top: calc(3rem + 18px);
         right: 3rem;
         transform: translateY(-10px);
-        
-        ul{
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+        padding: 1rem;
+        padding-right: 0;
+        border-radius: 1rem;
+        ul{        
             flex-direction: column;
             width: 100%;
             padding: 0;
             display: flex;
             justify-content: space-between;
             gap: 1rem;
+            
             li a{
                 float: right;
             }
@@ -245,28 +202,25 @@ body{
     .right{
         width: 100%;
         left: 0%;
+        top: 30vh;
     }
-    .right > .container{
-        ul{
-            display: block;
-            position: absolute;
-            top: 70%;
-            transform: translateY(-30%);
-            li{
-                display: flex;
-                justify-content: start;
-            }
-            .mail{
-                margin-left: 3rem
-            }
-        }
-        .contact-list{
-            top: 82.5%;
-        }
+}
+
+@media (min-height: 600px) and (max-width: 800px){
+    .left > ul{
+        display: block;
+        position: absolute;
+        top: 4.2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75vw;
+        z-index: 1;
     }
-    .right > .container{
-        .rotated{
-            right: -10.5rem;
-        }
+    .left > ul > li > a > img{
+        height: 45vh;
+        width: 100%;
+    }
+    .left > ul > li > a > h1{
+        top: 7rem;
     }
 }
