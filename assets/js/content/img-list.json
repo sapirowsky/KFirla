@@ -1,0 +1,12 @@
+{
+  "img":[
+            [
+                ["img", "assets/img/screenshot.png", "jakies zdjecie"],
+                ["h1", "p", "Przykładowe miejsce #1"]
+            ],
+            [
+                ["img", "assets/img/Beautiful-Full-HD-Images.jpg", "jakies zdjecie"],
+                ["h1", "p", "Przykładowe miejsce #2"]
+            ]
+        ]
+}

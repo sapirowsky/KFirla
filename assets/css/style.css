@@ -12,6 +12,10 @@ h1, a {
   padding: 0;
 }
 
+h4 {
+  margin-top: 2rem;
+}
+
 :root {
   --background-color: #F2F2F2;
   --hover-color: rgb(134, 134, 134);
@@ -25,6 +29,7 @@ body {
   line-height: 1.5;
   background-color: var(--background-color);
   font-size: 1.5rem;
+  overflow-y: scroll;
 }
 
 .navbar {
@@ -79,6 +84,7 @@ body {
   letter-spacing: 1px;
   font-weight: bold;
   color: black;
+  cursor: pointer;
 }
 
 .navbar-links ul li a::before {
@@ -174,7 +180,7 @@ body {
 }
 
 .main-content {
-  position: absolute;
+  position: relative;
   top: 32.5vh;
   left: 0;
   padding: 2rem 2rem;
