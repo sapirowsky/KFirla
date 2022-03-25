@@ -1,11 +1,11 @@
 // Importowanie wszystkich potrzebnych funkcji
 import { date } from "./date.js"
 import { nextSlide } from "./slides.js"
-import { toggleNavbar } from "./nav.js"
+import { betterToggleNavbar } from "./nav.js"
 
 
 // otwieranie menu dla telefonów
-toggleNavbar()
+betterToggleNavbar()
 
 
 // Zmiana slajdu co wybrany czas

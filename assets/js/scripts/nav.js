@@ -1,18 +1,30 @@
-export { toggleNavbar }
+export { betterToggleNavbar }
 
 // Funkcja odpowiada za rozwijanie i zwijanie menu
-function toggleNavbar() {
+function betterToggleNavbar() {
     const toggleButton = document.querySelector('.toggle-nav')
     const navbarLinks = document.querySelector('.navbar-links')
-    toggleButton.addEventListener('click', () => { 
-        let active = navbarLinks.classList.toggle('active')
-        if (active) {
-            toggleButton.src = 'assets/img/close.svg'
-            toggleButton.alt = 'Zamknij menu'
+    let active
+    
+
+    document.addEventListener("click", e => {
+    
+        if(e.target.matches(".toggle-nav")){
+            active = navbarLinks.classList.toggle("active")
+            if (active) {
+                toggleButton.src = 'assets/img/close.svg'
+                toggleButton.alt = 'Zamknij menu'
+            }
+            if (!active) {
+                toggleButton.src = 'assets/img/menu.svg'
+                toggleButton.alt = 'Otwórz menu'
+            }
+            
         }
-        if (!active) {
+        if( !e.target.matches(".toggle-nav") && active ){
+            navbarLinks.classList.toggle("active")
             toggleButton.src = 'assets/img/menu.svg'
-            toggleButton.alt = 'Otwórz menu'
+                toggleButton.alt = 'Otwórz menu'
         }
     })
 }
