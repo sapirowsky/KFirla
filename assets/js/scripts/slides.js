@@ -1,5 +1,6 @@
 export {nextSlide}
 
+// Funkcja po wywołaniu zmienia slajd na następny
 function nextSlide(){
     const slides = document.querySelector('[data-slides]')
     const activeSlide = slides.querySelector('[data-active]')

@@ -44,3 +44,7 @@ function renderList(items, marker, location){
         })
     }
 }
+
+
+// .right display none
+//.left > ul > li > a > img width 100%

@@ -1,5 +1,6 @@
 export { toggleNavbar }
 
+// Funkcja odpowiada za rozwijanie i zwijanie menu
 function toggleNavbar() {
     const toggleButton = document.querySelector('.toggle-nav')
     const navbarLinks = document.querySelector('.navbar-links')
