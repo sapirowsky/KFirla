@@ -26,6 +26,10 @@ function renderList(items, marker, location){
 
             const aElement = document.createElement("a")
             aElement.setAttribute("href", item[0][0])
+            aElement.setAttribute("id", "single-img")
+            aElement.addEventListener("click", () => {
+                imgShowCase(item)
+            })
             
             const imgElement = document.createElement("img")
             imgElement.setAttribute("src", item[1][0])
@@ -45,6 +49,55 @@ function renderList(items, marker, location){
     }
 }
 
+function imgShowCase(item){
 
+    const location = document.querySelector("#left-img-list")
+
+    const liElement = document.createElement("li")
+    liElement.dataset.active = true
+    liElement.classList.add("slide")
+    liElement.setAttribute("id", "showcase")
+
+    const aElement = document.createElement("a")
+    aElement.setAttribute("id", "single-img")
+
+    const closeShowCase = document.createElement("a")
+    closeShowCase.classList.add("showcase-close")
+    closeShowCase.setAttribute("href", "#")
+    closeShowCase.addEventListener("click", () => {
+        liElement.classList.remove("slide-showcase")
+        liElement.classList.add("slide")
+        imgElement.style.width = "50%"    
+        closeImg.style.display = "none"
+    })
+
+    const closeImg = document.createElement("img")
+    closeImg.setAttribute("src", "assets/img/close.svg")
+    closeImg.setAttribute("alt", "Zamknij zdjecie")
+
+    closeShowCase.appendChild(closeImg)
+    
+    const imgElement = document.createElement("img")
+    imgElement.setAttribute("src", item[1][0])
+    imgElement.setAttribute("alt", item[1][1])
+    const windowWidth = window.innerWidth
+    windowWidth > 800 ? imgElement.style.width = "100vw" : console.log("hehe")
+    
+
+
+    const textElement = document.createElement("h1")
+    textElement.textContent = item[2][0]
+
+    aElement.appendChild(closeShowCase)
+    aElement.appendChild(imgElement)
+    aElement.appendChild(textElement)
+    
+    liElement.appendChild(aElement)
+    location.innerHTML = ""
+    location.appendChild(liElement)
+    
+}
 // .right display none
 //.left > ul > li > a > img width 100%
+
+

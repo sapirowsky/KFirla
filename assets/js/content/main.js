@@ -68,11 +68,3 @@ if(latestPage === "realization"){
 }
 if(latestPage === "offer") renderElements(".main-content", arrayOfOfferContent)
 if(latestPage === "contact") renderElements(".main-content", arrayOfContactContent)
-
-
-
-
-
-
-
-
