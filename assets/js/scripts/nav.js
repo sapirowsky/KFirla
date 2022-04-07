@@ -22,7 +22,7 @@ function betterToggleNavbar() {
             
         }
         if( !e.target.matches(".toggle-nav") && active ){
-            navbarLinks.classList.toggle("active")
+            navbarLinks.classList.remove("active")
             toggleButton.src = 'assets/img/menu.svg'
                 toggleButton.alt = 'Otwórz menu'
         }
