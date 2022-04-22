@@ -67,7 +67,7 @@ function imgShowCase(item){
     closeShowCase.addEventListener("click", () => {
         liElement.classList.remove("slide-showcase")
         liElement.classList.add("slide")
-        imgElement.style.width = "50%"    
+        imgElement.style.width = "50%"
         closeImg.style.display = "none"
     })
 
@@ -81,10 +81,8 @@ function imgShowCase(item){
     imgElement.setAttribute("src", item[1][0])
     imgElement.setAttribute("alt", item[1][1])
     const windowWidth = window.innerWidth
-    windowWidth > 800 ? imgElement.style.width = "100vw" : console.log("hehe")
+    if( windowWidth > 800 ) {setTimeout(()=>{imgElement.style.width = "100vw"},1)}
     
-
-
     const textElement = document.createElement("h1")
     textElement.textContent = item[2][0]
 

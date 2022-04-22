@@ -68,3 +68,8 @@ if(latestPage === "realization"){
 }
 if(latestPage === "offer") renderElements(".main-content", arrayOfOfferContent)
 if(latestPage === "contact") renderElements(".main-content", arrayOfContactContent)
+
+
+window.addEventListener("resize", () => {
+    location.reload()
+})
